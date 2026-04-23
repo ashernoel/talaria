@@ -1,0 +1,88 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "runtime": "nodejs20",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": [
+    {
+      "site": "tamaria-app",
+      "public": "web/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true,
+      "trailingSlash": true,
+      "rewrites": [
+        { "source": "/api/draftEmail", "function": { "functionId": "draftEmail", "region": "us-central1" } },
+        { "source": "/api/regenerateWithFeedback", "function": { "functionId": "regenerateWithFeedback", "region": "us-central1" } },
+        { "source": "/api/logEdit", "function": { "functionId": "logEdit", "region": "us-central1" } },
+        { "source": "/api/getVoiceProfile", "function": { "functionId": "getVoiceProfile", "region": "us-central1" } },
+        { "source": "/api/updateVoiceProfile", "function": { "functionId": "updateVoiceProfile", "region": "us-central1" } },
+        { "source": "/api/bootstrapSubmit", "function": { "functionId": "bootstrapSubmit", "region": "us-central1" } },
+        { "source": "/api/initUser", "function": { "functionId": "initUser", "region": "us-central1" } },
+        { "source": "/api/extractReference", "function": { "functionId": "extractReference", "region": "us-central1" } },
+        { "source": "**", "destination": "/index.html" }
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(js|css|svg|woff2)",
+          "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+        }
+      ]
+    },
+    {
+      "site": "talaria-app",
+      "public": "web/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true,
+      "trailingSlash": true,
+      "rewrites": [
+        { "source": "/api/draftEmail", "function": { "functionId": "draftEmail", "region": "us-central1" } },
+        { "source": "/api/regenerateWithFeedback", "function": { "functionId": "regenerateWithFeedback", "region": "us-central1" } },
+        { "source": "/api/logEdit", "function": { "functionId": "logEdit", "region": "us-central1" } },
+        { "source": "/api/getVoiceProfile", "function": { "functionId": "getVoiceProfile", "region": "us-central1" } },
+        { "source": "/api/updateVoiceProfile", "function": { "functionId": "updateVoiceProfile", "region": "us-central1" } },
+        { "source": "/api/bootstrapSubmit", "function": { "functionId": "bootstrapSubmit", "region": "us-central1" } },
+        { "source": "/api/initUser", "function": { "functionId": "initUser", "region": "us-central1" } },
+        { "source": "/api/extractReference", "function": { "functionId": "extractReference", "region": "us-central1" } },
+        { "source": "**", "destination": "/index.html" }
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(js|css|svg|woff2)",
+          "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+        }
+      ]
+    }
+  ],
+  "emulators": {
+    "auth": { "port": 9099 },
+    "functions": { "port": 5001 },
+    "firestore": { "port": 8080 },
+    "hosting": { "port": 5000 },
+    "ui": { "enabled": true },
+    "singleProjectMode": true
+  }
+}

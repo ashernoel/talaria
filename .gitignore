@@ -1,0 +1,39 @@
+node_modules/
+dist/
+build/
+lib/
+.env
+.env.local
+.env.*.local
+.firebase/
+.firebaserc
+firebase-debug.log
+*.log
+.DS_Store
+.vscode/
+.idea/
+coverage/
+*.tsbuildinfo
+.turbo/
+.next/
+.cache/
+
+# Extension build artifacts
+web-ext-artifacts/
+extension-dist/
+*.crx
+*.pem
+
+# Generated PDFs during local testing
+tmp/
+out/
+*.pdf
+!docs/**/*.pdf
+
+# Claude/IDE
+.claude/settings.local.json
+.gstack/
+
+# Firebase Functions local secrets (never commit)
+.secret.local
+**/.secret.local

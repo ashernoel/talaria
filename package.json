@@ -1,0 +1,26 @@
+{
+  "name": "talaria",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Outreach email & research assistant for VC/PE",
+  "workspaces": [
+    "shared",
+    "web",
+    "functions"
+  ],
+  "scripts": {
+    "dev": "npm --workspace web run dev",
+    "build": "npm --workspace shared run build && npm --workspace functions run build && npm --workspace web run build",
+    "build:shared": "npm --workspace shared run build",
+    "build:functions": "npm --workspace functions run build",
+    "build:web": "npm --workspace web run build",
+    "emulators": "firebase emulators:start",
+    "deploy": "npm run build && firebase deploy",
+    "deploy:functions": "npm run build:shared && npm run build:functions && firebase deploy --only functions",
+    "deploy:hosting": "npm run build:shared && npm run build:web && firebase deploy --only hosting",
+    "deploy:rules": "firebase deploy --only firestore:rules"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny: nothing is readable/writable unless explicitly allowed below.
+
+    // Research mini-sites shared with email recipients — public read, server-only write.
+    match /publicResearch/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      // Writes to the user root doc happen via Cloud Functions (admin SDK bypasses rules).
+      // Client-side writes are disallowed to keep voiceProfile tamper-proof.
+      allow write: if false;
+
+      match /bootstrap/{emailId} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+
+      match /drafts/{draftId} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+
+      match /researchDocs/{docId} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+
+      match /rateLimits/{key} {
+        allow read, write: if false;
+      }
+    }
+  }
+}
