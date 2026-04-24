@@ -20,16 +20,12 @@ private link.
 
 ## What it does
 
-**Instant email credibility, in your voice.** You paste a company URL. Twenty seconds later, you have:
+Input: a company URL. Output: a draft email (subject + 120-180 word body) and, optionally, a
+2-page research brief at `/research/?id=<id>` you can link from the email.
 
-1. A **personalized cold email** (subject + 120-180 word body) in your writing voice, referring to
-   specifics from the company's site — not generic.
-2. Optionally, a **shareable 2-page research brief** at `talaria-app.web.app/research/?id=<id>`
-   — why this company, who they compete with, what the wedge is, what's "why now." You can drop the
-   link directly in the email.
-
-The system learns from every edit and approval you make. After 20-50 drafts, the voice converges to
-yours: your sentence rhythm, your signature close, the specific phrases you actually use.
+The draft uses your last 6 approved emails as few-shot examples; voice tracks yours over 20-50
+drafts. Draft and research run in parallel, so end-to-end latency is bounded by the slower call,
+not their sum. Default model is Opus 4.7; `effortMinutes: 1` switches the draft to Haiku 4.5.
 
 ## Walkthrough
 
