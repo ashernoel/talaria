@@ -1,8 +1,12 @@
 # Talaria
 
-Research-grade outreach for investors. Paste a company URL, get a draft email you'd actually send,
-written in your voice, grounded in what's on their site, with an optional 2-page research brief
-the recipient can open from a private link.
+**Instant email credibility, in your voice...**
+
+Paste a company URL. Get a cold email you'd actually send — written in your voice, grounded in
+what's on their site, with an optional 2-page research brief the recipient can open from a
+private link.
+
+→ **Live: [talaria-app.web.app](https://talaria-app.web.app)**
 
 > Talaria *(Greek: "winged sandals of Hermes")* — a tool for moving fast across the work of writing
 > dozens of personalized emails a week without losing the thing that makes them worth opening.
@@ -16,7 +20,7 @@ the recipient can open from a private link.
 
 ## What it does
 
-You paste a company URL. Twenty seconds later, you have:
+**Instant email credibility, in your voice.** You paste a company URL. Twenty seconds later, you have:
 
 1. A **personalized cold email** (subject + 120-180 word body) in your writing voice, referring to
    specifics from the company's site — not generic.

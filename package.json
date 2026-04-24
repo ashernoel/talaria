@@ -2,7 +2,7 @@
   "name": "talaria",
   "private": true,
   "version": "0.1.0",
-  "description": "Outreach email & research assistant for VC/PE",
+  "description": "Instant email credibility, in your voice. Paste a URL, get a draft + 2-page research brief.",
   "workspaces": [
     "shared",
     "web",
